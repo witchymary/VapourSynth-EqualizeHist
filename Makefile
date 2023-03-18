@@ -1,6 +1,6 @@
 CXX := g++
 CXXFLAGS := -O2 -Wall -fPIC -std=c++20
-LDFLAGS := -shared
+LDFLAGS := -shared -lopencv_imgproc
 DESTDIR :=
 PREFIX := /usr/lib/vapoursynth
 INCLUDE := -I/usr/include/vapoursynth/ -I/usr/include/opencv4
@@ -10,7 +10,7 @@ SRC := src/shared.cpp src/CLAHE.cpp src/EqualizeHist.cpp
 OBJ := $(patsubst %.cpp, %.o, $(SRC))
 
 all: $(OBJ)
-	$(CXX) $(LDFLAGS) -o $(TARGET) $^
+	$(CXX) -o $(TARGET) $^ $(LDFLAGS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
 
