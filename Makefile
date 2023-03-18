@@ -15,10 +15,10 @@ all: $(OBJ)
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
 
 install:
-	install -Dm644 $(TARGET) $(DESTDIR)$(PREFIX)/$(TARGET)
+	install -Dm644 "$(TARGET) $(DESTDIR)$(PREFIX)/$(TARGET)"
 
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/$(TARGET)
+	rm -f "$(DESTDIR)$(PREFIX)/$(TARGET)"
 
 clean: 
-	rm -f $(OBJ)
+	rm -f "$(OBJ)"
